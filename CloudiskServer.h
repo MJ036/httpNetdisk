@@ -3,7 +3,6 @@
 
 #include <workflow/WFFacilities.h>
 #include <wfrest/HttpServer.h>
-
 class CloudiskServer{
 public:
     CloudiskServer(int cnt)

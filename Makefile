@@ -5,20 +5,20 @@ OBJS:=$(patsubst %.cc, %.o, $(SRCS))
 SERVER:= CloudiskServer
 
 
-$(SERVER) : main.o CloudiskServer.o
+$(SERVER) : main.o CloudiskServer.o Token.o Hash.o
 	g++ $^ -o $@ $(LIBS) $(addprofix -I, $(INCLUDES)) -g
 
 %.o : %.cc
 	g++ -c $^ -o $@ $(LIBS) $(addprofix -I, $(INCLUDES)) -g
 
 #HASH:=testHash
-#TOKEN:=testToken
+TOKEN:=testToken
 
 #$(HASH): Hash.o testHash.o
 #	g++ $^ -o $@ $(LIBS) $(addprefix -I, $(INCLUDES)) -g
 
-#$(TOKEN): Token.o testToken.o
-#	g++ $^ -o $@ $(LIBS) $(addprefix -I, $(INCLUDES)) -g
+$(TOKEN): Token.o testToken.o
+	g++ $^ -o $@ $(LIBS) $(addprefix -I, $(INCLUDES)) -g
 
 #echo:
 #	echo $(INCLUDES)

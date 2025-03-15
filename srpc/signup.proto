@@ -1,0 +1,21 @@
+syntax="proto3";
+// 定义消息 
+message ReqSignup {
+    // 属性 类型 名字 编号
+    // 属性 required optional repeated 默认是required
+    // required 必须出现这个成员
+    // optional 可选的成员
+    // repeated 成员是一个数组
+    string username = 1;//不同成员的编号必须不一样
+    string password = 2;
+}
+
+message RespSignup{
+    int32 code = 1;
+    string information = 2;
+}
+
+service UserService{
+    //定义rpc函数：函数名、参数、返回值
+    rpc Signup (ReqSignup) returns (RespSignup) {}
+}
